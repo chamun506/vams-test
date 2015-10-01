@@ -94,7 +94,7 @@ public class LoginForm extends AbstractMaintenanceForm<String, AppUser> {
 			user.addRole(Role.USER.value());
 			user.addRole(Role.ADMIN.value());
 			getUserSvc().update(user);
-			System.out.println(getUserSvc().getById(userName));
+			System.out.println("LoginForm"+getUserSvc().getById(userName));
 
 			WebApplicationContext ac = WebApplicationContextUtils
 					.getWebApplicationContext((ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext());

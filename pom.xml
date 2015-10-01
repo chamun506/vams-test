@@ -460,7 +460,23 @@
 			<artifactId>gson</artifactId>
 			<version>2.2.4</version>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>org.wildfly</groupId>
+			<artifactId>wildfly-arquillian-container-managed</artifactId>
+			<version>8.2.1.Final</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>arquillian-core-api</artifactId>
+					<groupId>org.jboss.arquillian.core</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>sun.jdk</groupId>
+					<artifactId>jconsole</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency> 
 	</dependencies>
 
 	<build>
@@ -516,7 +532,6 @@
 			<plugin>
 				<groupId>org.eclipse.m2e</groupId>
 				<artifactId>lifecycle-mapping</artifactId>
-				<version>1.0.0</version>
 				<configuration>
 					<lifecycleMappingMetadata>
 						<pluginExecutions>

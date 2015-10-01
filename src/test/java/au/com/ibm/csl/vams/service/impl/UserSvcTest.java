@@ -14,21 +14,21 @@ import au.com.ibm.csl.vams.service.ServiceTests;
 
 public class UserSvcTest extends ServiceTests {
 
-	@EJB(name="UserSvcLocal")
-	private IUserSvc userSvc;
+	//@EJB(name="UserSvcLocal")
+	//private IUserSvc userSvc;
 
 	//@Test
 	public void testCreate() {
 
-		assertNotNull(userSvc);
+		//assertNotNull(userSvc);
 		
 		AppUser u = new AppUser();
 		u.setLogin("sanket");
 		u.setPassword("passw0rd");
 
-		AppUser savedAcct = userSvc.update(u);
+		//AppUser savedAcct = userSvc.update(u);
 		
-		assertNotNull(savedAcct);
+		//assertNotNull(savedAcct);
 
 	}
 

@@ -25,6 +25,17 @@
 		<non-jta-data-source>vams-db</non-jta-data-source>
 		-->
 		<class>au.com.csl.vams.model.relational.AppUser</class>
+		<class>au.com.csl.vams.model.relational.Sample</class>
+		<class>au.com.csl.vams.model.relational.StudyType</class>
+		<class>au.com.csl.vams.model.relational.Algorithm</class>
+		<class>au.com.csl.vams.model.relational.PlateType</class>
+		<class>au.com.csl.vams.model.relational.Plate</class>
+		<class>au.com.csl.vams.model.relational.PlateElement</class>
+		<class>au.com.csl.vams.model.relational.PlateVersion</class>
+		<class>au.com.csl.vams.model.relational.Study</class>
+		<class>au.com.csl.vams.model.relational.Run</class>
+		
+		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		
 		<properties>
