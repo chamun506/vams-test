@@ -1,0 +1,224 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	
+		<div class="Container100">
+
+
+			<div class="Wid90 DispBlock MarAuto MarTopPerc0 TexAlCenter">
+				<div class="Wid50 MarAuto WidAutoOnMobile">
+					<!--     <h:graphicImage name="images/logo.svg" library="rio-layout" style="width:40%; max-width:200px;"/> -->
+					<div class="EmptyBox20" />
+					<div class="Card ShadowEffect graypanel" style="max-width:400px; margin:0 auto;">
+						<div class="EmptyBox20" />
+						<div class="Wid100 OvHidden BigTopic Fs30">
+							<i class="icon-users Fs40"></i>Login
+						</div>
+						<div class="EmptyBox20" />
+						<div class="Wid100">
+							<p:inputText id="loginPanelUser" placeholder="username"
+								styleClass="Wid80 TexAlCenter Fs18 white" required="true" requiredMessage="Username required"
+								value="#{loginForm.userName}" />
+						</div>
+						<div class="EmptyBox10" />
+						<div class="Wid100">
+							<p:inputText id="loginPanelPassword" type="password" placeholder="password"
+								styleClass="Wid80 TexAlCenter Fs18 white" required="true" requiredMessage="Password required"
+								value="#{loginForm.password}" />
+						</div>
+<!-- 						<div class="EmptyBox30" /> -->
+<!-- 						<p:selectBooleanCheckbox value="accept" -->
+<!-- 							itemLabel="I Accept Terms And Policies" /> -->
+						<div class="EmptyBox20" />
+												
+						<div class="Wid100">
+<p:outputPanel styleClass="buttontint paddingscale">
+							<!-- 					<p:button value="Sign In" icon="fa fa-sign-in" styleClass="Wid60 Fs18 White RaisedButton" /> -->
+							<p:commandButton id="loginPanelSignInButton" value="Sign In" icon="fa fa-sign-in"
+								styleClass="Wid60 Fs18 White RaisedButton" update="form:mainContent, form:sideContent, growl"
+								action="#{loginForm.login}" ajax="true"/>
+								</p:outputPanel>
+						</div>
+												<div class="EmptyBox5" />
+						<div class="Separator" />
+					
+						<div class="EmptyBox5" />
+						<div class="Wid100">
+						<p:outputPanel styleClass="buttontint paddingscale">
+							<p:commandButton value="Forgot Password ?" icon="fa fa-lock"
+								styleClass="clearbutton Wid60 Fs18 White RaisedButton" update="growl"
+								action="#{loginForm.forgotPwd}" ajax="true" />
+								</p:outputPanel>
+						</div>
+						<div class="EmptyBox5" />
+
+						<div class="Wid100">
+						<p:outputPanel styleClass="buttontint paddingscale">
+							<p:commandButton value="Request Access"
+								action="#{appUserForm.viewNewOne()}" ajax="true"
+								update="form:mainContent" process="@this"
+								icon="fa fa-key"
+								styleClass="clearbutton Wid60 Fs18 White RaisedButton" />
+								</p:outputPanel>
+						</div>
+						<div class="EmptyBox20" />
+					</div>
+					<div
+						class="Wid100 TexAlCenter MarTop20 Fs14 FontRobotoRegular grey4f">
+						<i class="fa fa-copyright"></i> IBM - GBS (Emerging Technologies)
+						<br /> All rights reserved.
+					</div>
+					<div class="EmptyBox30" />
+					<!-- <input type="file" accept="image/*;capture=camera" id="scanbox" value="Browse" onchange="scanImage()"/>
+					<p:remoteCommand name="myRemote" actionListener="#{auditForm.scanBarcode()}" update="barcodeText" />
+                	<h:outputText class="White" id="barcodeText" value="#{auditForm.barcode}"></h:outputText>
+                	<div id="dec">result</div> -->
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+		/**
+		This function hides the menu mobile after a menu item is selected in mobile mode.
+		 */
+		 function scanImage() {
+		        var input, file;
+
+		        if (typeof window.FileReader !== 'function') {
+		        	alert("The file API isn't supported on this browser yet.");
+		            return;
+		        }
+
+		        input = document.getElementById('scanbox');
+		        if (!input) {
+		        	alert("Um, couldn't find the filename element.");
+		        }
+		        else if (!input.files) {
+		        	alert("This browser doesn't seem to support the `files` property of file inputs.");
+		        }
+		        else if (!input.files[0]) {
+		        	alert("Please select a file before clicking 'Show Size'");
+		        }
+		        else {
+		            file = input.files[0];
+		            displayAsImage(file)
+		            myRemote();
+		        }
+
+		        function write(msg) {
+		            var p = document.createElement('p');
+		            p.innerHTML = msg;
+		            document.body.appendChild(p);
+		        }
+		    }
+		
+		  
+			    var UPC_SET = {
+			        "3211": '0',
+			        "2221": '1',
+			        "2122": '2',
+			        "1411": '3',
+			        "1132": '4',
+			        "1231": '5',
+			        "1114": '6',
+			        "1312": '7',
+			        "1213": '8',
+			        "3112": '9'
+			    };
+			    
+			    function displayAsImage(file) {
+		    	  var imgURL = URL.createObjectURL(file),
+		    	      img = document.createElement('img');
+		    	  	  img.setAttribute("id", "scannedImage");
+
+		    	  img.onload = function() {
+		    	    URL.revokeObjectURL(imgURL);
+		            alert(getBarcodeFromImage('scannedImage'));
+		    	  };
+
+		    	  img.src = imgURL;
+		    	  document.body.appendChild(img);
+			    }
+			    
+			    function getBarcodeFromImage(imgOrId) {
+			        var doc = document,
+			            img = "object" == typeof imgOrId ? imgOrId : doc.getElementById(imgOrId),
+			            canvas = doc.createElement("canvas"),
+			            width = img.width,
+			            height = img.height,
+			            ctx = canvas.getContext("2d"),
+			            spoints = [1, 9, 2, 8, 3, 7, 4, 6, 5],
+			            numLines = spoints.length,
+			            slineStep = height / (numLines + 1),
+			            round = Math.round;
+			        canvas.width = width;
+			        canvas.height = height;
+			        alert(img.width)
+			        ctx.drawImage(img, 0, 0);
+			        while(numLines--){
+			            console.log(spoints[numLines]);
+			            var pxLine = ctx.getImageData(0, slineStep * spoints[numLines], width, 2).data,
+			                sum = [],
+			                min = 0,
+			                max = 0;
+			            for(var row = 0; row &lt; 2; row++){
+			                for(var col = 0; col &lt; width; col++){
+			                    var i = ((row * width) + col) * 4,
+			                        g = ((pxLine[i] * 3) + (pxLine[i + 1] * 4) + (pxLine[i + 2] * 2)) / 9,
+			                        s = sum[col];
+			                    pxLine[i] = pxLine[i + 1] = pxLine[i + 2] = g;
+			                    sum[col] = g + (undefined == s ? 0 : s);
+			                }
+			            }
+			            for(var i = 0; i &lt; width; i++){
+			                var s = sum[i] = sum[i] / 2;
+			                if(s &lt; min){ min = s; }
+			                if(s &gt; max){ max = s; }
+			            }
+			            var pivot = min + ((max - min) / 2),
+			                bmp = [];
+			            for(var col = 0; col &lt; width; col++){
+			                var matches = 0;
+			                for(var row = 0; row &lt; 2; row++){
+			                    if(pxLine[((row * width) + col) * 4] &gt; pivot){ matches++; }
+			                }
+			                bmp.push(matches &gt; 1);
+			            }
+			            var curr = bmp[0],
+			                count = 1,
+			                lines = [];
+			            for(var col = 0; col &lt; width; col++){
+			                if(bmp[col] == curr){ count++; }
+			                else{
+			                    lines.push(count);
+			                    count = 1;
+			                    curr = bmp[col];
+			                }
+			            }
+			            var code = '',
+			                bar = ~~((lines[1] + lines[2] + lines[3]) / 3),
+			                u = UPC_SET;
+			            for(var i = 1, l = lines.length; i &lt; l; i++){
+			                if(code.length &lt; 6){ var group = lines.slice(i * 4, (i * 4) + 4); }
+			                else{ var group = lines.slice((i * 4 ) + 5, (i * 4) + 9); }
+			                var digits = [
+			                    round(group[0] / bar),
+			                    round(group[1] / bar),
+			                    round(group[2] / bar),
+			                    round(group[3] / bar)
+			                ];
+			                code += u[digits.join('')] || u[digits.reverse().join('')] || 'X';
+			                if(12 == code.length){ return code; break; }
+			            }
+			            if(-1 == code.indexOf('X')){ return code || false; }
+			        }
+			        return false;
+			    }
+			
+	</script>
+
+
+</ui:composition>

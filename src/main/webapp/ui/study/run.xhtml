@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<div class="Container100">
+
+		<div class="TexAlLeft">
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel value="Study Name" for="studyName" />
+				<p:outputPanel>
+					<div class="TexAlLeft" >
+							<p:selectOneMenu style="width:calc(56% - 36px); margin-right:5px;"  id="studyName" value="#{studyForm.sessionModel.model.studyName}" editable="true" disabled="#{auditForm.sessionModel.editMode}" >
+								<f:selectItem itemLabel="Select One" itemValue="" />
+								<f:selectItems value="#{studyForm.studies}" />
+							</p:selectOneMenu>
+					</div>
+				</p:outputPanel>
+				<p:outputLabel value="Run Number" />
+				<p:outputPanel>
+					<p:inputText style="width:56%;margin-right:5px;"
+						value="#{studyForm.run.runNbr}">
+					</p:inputText>
+				</p:outputPanel>
+				<div class="Container50 TexAlCenter">
+					<p:outputPanel styleClass="shelfbutton">
+						<p:commandButton value="Save"
+							action="#{studyForm.saveNewRun()}" ajax="true"
+							update="form:mainContent, backButtonPanel, growl"
+							rendered="#{studyForm.sessionModel.newMode}" />
+					</p:outputPanel>
+				</div>
+			</h:panelGrid>
+		</div>
+	</div>
+</ui:composition>

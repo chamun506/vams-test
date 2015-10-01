@@ -1,0 +1,93 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<div id="layout-topbar">
+		<!-- 		<div id="logo" class="Fleft" -->
+		<!-- 			style="display: table-cell; vertical-align: middle;"> -->
+<div class="topbarmargin">
+
+			<div class="Container20 Responsive20" style="text-align:left">
+				
+				<div id="desktoplogo" class="ShowOnDesktop ripplelink Unselectable ShadowEffect">
+					<p:graphicImage library="custom" styleClass="noupdate"
+					style="width:auto;height:4em;vertical-align:middle;"
+					/>
+				</div>
+				<a id="mobile-menu-button"
+					class="ShowOnMobile ripplelink Unselectable ShadowEffect">
+					<p:graphicImage library="custom" styleClass="noupdate"
+					style="width:auto;height:4em;vertical-align:middle;"
+					name="images/telstra.png" />
+					<i class="fa fa-chevron-down Fs12 WhiteBlue"
+						style="vertical-align: middle; margin-left: -8px"></i>
+					</a>
+			</div>
+			
+						<div class="Container60 Responsive60"
+				style="text-align: center; margin-top: 12px">
+				<span class="FontRobotoRegular Fs24 whitef"
+					style="font-stretch: wider;">Viral Assay</span>
+			</div>
+			
+			<div class="Container20 Responsive20 backbuttondiv" style="text-align:right; margin-top: 8px">
+			<p:panel id="backButtonPanel" style="border:0px;padding:0px;padding: 0px!important;margin: 0px;">
+				<p:commandLink id="backButton" styleClass="ripplelink WhiteBlue"
+					action="#{auditForm.goBack}" ajax="true" process="form"
+					rendered="#{auditForm.renderBackLink}"
+					update="form:mainContent, backButtonPanel, growl">					
+					<i class="fa fa-chevron-left Fs16 blue3f"
+						style="vertical-align: middle; margin-top: 3px"></i>
+					<h:outputText value=" Back" styleClass="Fs18 blue4f"
+						style="vertical-align:middle; margin-right: 10px;"></h:outputText>
+				</p:commandLink>
+				<p:commandLink id="backButtonForAddMaterialForm" styleClass="ripplelink WhiteBlue"
+					action="#{auditForm.goBack}" ajax="true" process="@this"
+					rendered="#{! auditForm.renderBackLink}"
+					update="form:mainContent, backButtonPanel, growl">					
+					<i class="fa fa-chevron-left Fs16 blue3f"
+						style="vertical-align: middle; margin-top: 3px"></i>
+					<h:outputText value=" Back" styleClass="Fs18 blue4f"
+						style="vertical-align:middle; margin-right: 10px;"></h:outputText>
+				</p:commandLink>
+				</p:panel>
+			</div>
+			
+
+
+
+
+
+		<!-- 		</div> -->
+
+
+
+		<!-- 		<a class="ripplelink WhiteBlue Fright ShowOnMobile" id="show-top-menu"><i -->
+		<!-- 			class="icon-show8"></i></a> -->
+
+		<!-- 		<ul id="top-menu" class="ShowOnDesktop"> -->
+		<!-- 			<li><a class="ripplelink"><i class="icon-search100"></i> <span -->
+		<!-- 					class="Txt">Search</span></a> -->
+		<!-- 				<ul> -->
+		<!-- 					<li><input type="text" placeholder="Search" /></li> -->
+		<!-- 				</ul></li> -->
+		<!-- 			<li><a class="ripplelink"><i class="icon-set6"></i> <span -->
+		<!-- 					class="Txt">Tasks</span></a> -->
+		<!-- 				<ul> -->
+		<!-- 					<li><a href="#">23 New Tasks</a></li> -->
+		<!-- 				</ul></li> -->
+		<!-- 			<li><a class="ripplelink"><i class="icon-notifications1"></i> -->
+		<!-- 					<span class="Txt">Alerts</span></a> -->
+		<!-- 				<ul> -->
+		<!-- 					<li><a href="#">18 Alerts</a></li> -->
+		<!-- 				</ul></li> -->
+		<!-- 			<li><a href="#" class="ripplelink"><i class="icon-wifi83"></i> -->
+		<!-- 					<span class="Txt">System Settings</span></a></li> -->
+		<!-- 		</ul> -->
+	</div>
+	</div>
+
+</ui:composition>
