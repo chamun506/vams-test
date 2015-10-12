@@ -27,12 +27,10 @@ public class Study extends AbstractMasterEntity<String> {
 	private static final long serialVersionUID = 4L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private String id;
 		
 	private String studyName;
-	
-	private String studyNbr;
 	
 	@OneToOne
 	private StudyType studyType;	
@@ -59,14 +57,6 @@ public class Study extends AbstractMasterEntity<String> {
 
 	public void setStudyName(String studyName) {
 		this.studyName = studyName;
-	}
-
-	public String getStudyNbr() {
-		return studyNbr;
-	}
-
-	public void setStudyNbr(String studyNbr) {
-		this.studyNbr = studyNbr;
 	}
 
 	public StudyType getStudyType() {

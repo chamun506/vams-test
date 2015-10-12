@@ -20,7 +20,7 @@ public class PlateElement extends AbstractMasterEntity<Long>{
 	private static final long serialVersionUID = 8L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 	
 	private Integer row;

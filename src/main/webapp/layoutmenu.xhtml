@@ -59,7 +59,7 @@
 		
 				<pr:menu id="mainMenu">
 					<p:menuitem id="rm_dashboard" value="Enter New Study Data" icon="fa fa-dashboard"
-						action="#{studyForm.viewNewOne}" ajax="true"
+						action="#{studyForm.getViewForList}" ajax="true"
 						update="form:mainContent, backButtonPanel, growl" onsuccess="closeMobileMenu();"
 						rendered="#{loginForm.validateLoggedIn()}" />
 					<!-- <p:menuitem id="rm_notifications" value="Notifications"

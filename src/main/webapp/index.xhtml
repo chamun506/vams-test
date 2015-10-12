@@ -32,44 +32,20 @@
 
 		<div id="wrapper">
 			<div id="wrapperIndent">
-
-				<ui:include src="layoutmenu.xhtml" />
-
-				<div id="layout-portlets-cover">
+			<ui:include src="layoutmenu.xhtml" />
+			<div id="layout-portlets-cover">
 					<h:panelGroup layout="block" id="mainContent">
 						<ui:insert name="content">
 							<ui:include src="#{sessionModel.content}" />
 						</ui:insert>
 					</h:panelGroup>
-
-					<!-- 				<div class="Container100"> -->
-					<!-- 					<div class="ContainerIndent Fs12 BoldGray FontRobotoRegular"> -->
-					<!-- 						<div class="EmptyBox10"></div> -->
-					<!-- 						<i class="icon-mountains14 Fs16 Fleft"></i> IBM Global Business Services | All rights reserved. Stage: #{facesContext.application.projectStage} -->
-					<!-- 						<div class="EmptyBox10"></div> -->
-					<!-- 					</div> -->
-					<!-- 				</div> -->
-				</div>
-				<!-- 			<div style="width:32px;height:32px;position:fixed;right:7px;bottom:7px;border-radius:50px;background-color:red"></div> -->
-
-
-
+			</div>
+			
 			</div>
 		</div>
 	</h:form>
 
-<!-- 	<p:ajaxStatus
-		style="width:32px;height:32px;position:fixed;right:7px;bottom:7px"
-		styleClass="ContainerIndent">
-		<f:facet name="start">
-			<div id="preloader6">
-				<span /> <span /> <span /> <span />
-			</div>
-		</f:facet>
-		<f:facet name="complete">
-			<h:outputText value="" />
-		</f:facet>
-	</p:ajaxStatus> -->
+
 
 	<h:outputScript name="js/ripple-effect.js" library="rio-layout" />
 	<h:outputScript name="js/perfect-scrollbar.js" library="rio-layout" />

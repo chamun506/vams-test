@@ -7,5 +7,4 @@ import au.com.csl.vams.model.relational.Run;
 @NoRepositoryBean
 @Repo
 public interface RunRepository extends JpaRepository<Run, String>  {
-
 }

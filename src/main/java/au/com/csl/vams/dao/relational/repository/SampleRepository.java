@@ -10,6 +10,4 @@ import au.com.csl.vams.model.relational.Sample;
 @NoRepositoryBean
 @Repo
 public interface SampleRepository extends JpaRepository<Sample, String> {
-	Sample findBySampleName(String sampleName);
-
 }

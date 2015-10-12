@@ -1,8 +1,6 @@
 package au.com.csl.vams.service.impl;
 
 import java.util.List;
-
-import javax.ejb.Local;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -11,7 +9,6 @@ import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-
 import au.com.csl.vams.dao.Dao;
 import au.com.csl.vams.dao.IUserDao;
 import au.com.csl.vams.model.relational.AppUser;

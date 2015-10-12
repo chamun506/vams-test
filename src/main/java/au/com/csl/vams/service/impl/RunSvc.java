@@ -35,12 +35,12 @@ public class RunSvc implements IRunSvc {
 
 	@Override
 	public Run create(Run pEntity) {
-		return getDao().save(pEntity);
+		return getDao().saveAndFlush(pEntity);
 	}
 
 	@Override
 	public Run update(Run pEntity) {
-		return getDao().save(pEntity);
+		return getDao().saveAndFlush(pEntity);
 
 	}
 

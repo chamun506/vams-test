@@ -1,9 +1,8 @@
 package au.com.csl.vams.dao.relational.repository;
 
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
-
-import au.com.csl.vams.model.relational.Sample;
 import au.com.csl.vams.model.relational.Study;
 import au.com.csl.vams.dao.relational.repository.Repo;
 
@@ -11,6 +10,7 @@ import au.com.csl.vams.dao.relational.repository.Repo;
 @Repo
 public interface StudyRepository extends JpaRepository<Study, String>{
 
-	//Study findByStudyIDAndRunID(String p_ID, String p_runID);
+	List<Study> findByStudyNameContainingOrIdContaining(String p_name,String p_id);
+	
 
 }

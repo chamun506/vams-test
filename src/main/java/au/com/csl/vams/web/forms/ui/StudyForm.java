@@ -122,7 +122,7 @@ public class StudyForm  extends AbstractMaintenanceForm<String, Study>{
 
 	@Override
 	public String getViewForList() {
-		return null;
+		return  "ui/study/studyList.xhtml";
 	}
 	
 	@Override

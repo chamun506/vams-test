@@ -19,7 +19,7 @@ public class StudyTypeDaoTest extends RelationalTests{
 	@Dao
 	IStudyTypeDao dao;
 			
-	@Test
+	//@Test
 	public  void saveStudyType()
 	{
 		

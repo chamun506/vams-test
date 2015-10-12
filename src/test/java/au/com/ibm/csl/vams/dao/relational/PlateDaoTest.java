@@ -1,8 +1,8 @@
 package au.com.ibm.csl.vams.dao.relational;
 
+import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.inject.Inject;
 import org.junit.Test;
 import au.com.csl.vams.dao.IPlateDao;
@@ -43,12 +43,17 @@ public class PlateDaoTest extends RelationalTests {
 		List<PlateVersion> plateVerLst = new ArrayList<PlateVersion>();
 		plateVerLst.add(plateVer);
 
+		//plate.setRun(run);
 		
 		Plate plateNew=dao.saveAndFlush(plate);
-		
-		
-		
-		
+				
+	}
+	
+	@Test
+	public void getPlatesByRunId()
+	{
+		List<Plate> plateLst=dao.findByRunId("1");
+		assertEquals("1", plateLst.size());
 	}
 	
 	

@@ -32,6 +32,8 @@ public class RunDaoTest extends RelationalTests{
 		
 		dao.saveAndFlush(run);
 		
+		Run newRun=dao.findOne("1");
+		
 		
 	}
 

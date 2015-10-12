@@ -1,16 +1,9 @@
 package au.com.csl.vams.model.relational;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-
 import au.com.csl.vams.scaffold.AbstractMasterEntity;
 
 /**
@@ -25,23 +18,17 @@ public class Sample extends AbstractMasterEntity<String>{
 	private static final long serialVersionUID = 7L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="SAMPLE_ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private String id;
-	
-	@Column(name="SAMPLE_NAME")
+		
 	private String sampleName;
-	
-	@Column(name="INITIAL_DIL")
+		
 	private Integer initialDil;
+		
+	private Integer dilInterval;
 	
-	@Column(name="DIL_INTERVALS")
-	private Integer dilIntervals;
-	
-	@Column(name="VOL_TESTED")
 	private Integer volTested;
 	
-	@Column(name="CALC_LOD")
 	private String calcLOD;
 		
 	public String getId() {
@@ -68,12 +55,12 @@ public class Sample extends AbstractMasterEntity<String>{
 		this.initialDil = initialDil;
 	}
 
-	public Integer getDilIntervals() {
-		return dilIntervals;
+	public Integer getDilInterval() {
+		return dilInterval;
 	}
 
-	public void setDilIntervals(Integer dilIntervals) {
-		this.dilIntervals = dilIntervals;
+	public void setDilIntervals(Integer dilInterval) {
+		this.dilInterval = dilInterval;
 	}
 
 	public Integer getVolTested() {

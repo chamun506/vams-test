@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 import au.com.csl.vams.scaffold.AbstractMasterEntity;
 
 /**
@@ -26,10 +28,9 @@ public class Plate extends AbstractMasterEntity<String> {
 	private static final long serialVersionUID = 6L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private String id;
-	
-	
+		
 	private String plateName;
 	
 	@ManyToOne
@@ -38,6 +39,9 @@ public class Plate extends AbstractMasterEntity<String> {
 	@OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "PLATE_ID")
     private List<PlateElement> plateElmns;
+	
+	@OneToOne
+	private Sample sample;
 
 	public String getId() {
 		return id;
@@ -70,7 +74,15 @@ public class Plate extends AbstractMasterEntity<String> {
 	public void setPlateElmns(List<PlateElement> plateElmns) {
 		this.plateElmns = plateElmns;
 	}
-		
+				
+	public Sample getSample() {
+		return sample;
+	}
+
+	public void setSample(Sample sample) {
+		this.sample = sample;
+	}
+
 	@Override
 	public String getSearchResultInfo() {
 		// TODO Auto-generated method stub

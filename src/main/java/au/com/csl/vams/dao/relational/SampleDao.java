@@ -16,10 +16,4 @@ public class SampleDao extends AbstractDao<Sample, String, SampleRepository> imp
 		JpaRepositoryFactory factory = new JpaRepositoryFactory(getEntityManager());
 		setRepository(factory.getRepository(SampleRepository.class));
 	}
-	
-	@Override
-	public Sample findBySampleName(String sampleName) {
-		return getRepository().findBySampleName(sampleName);
-	}
-
 }

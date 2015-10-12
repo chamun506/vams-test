@@ -1,7 +1,6 @@
 package au.com.csl.vams.model.relational;
 
 import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,15 +22,12 @@ public class Run extends AbstractMasterEntity<String>{
 	private static final long serialVersionUID = 5L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private String id;
-	
-	private String runNbr;
-	
+			
 	@ManyToOne
 	private Study study;
-	
-		
+			
 	@Transient
     private List<Plate> plates;
 	
@@ -59,14 +55,6 @@ public class Run extends AbstractMasterEntity<String>{
 		this.study = study;
 	}
 	
-	public String getRunNbr() {
-		return runNbr;
-	}
-
-	public void setRunNbr(String runNbr) {
-		this.runNbr = runNbr;
-	}
-
 	@Override
 	public String getSearchResultInfo() {
 		// TODO Auto-generated method stub
